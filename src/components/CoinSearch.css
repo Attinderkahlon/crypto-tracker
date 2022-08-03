@@ -1,0 +1,16 @@
+.coin-search {
+  background-color: #d5cfcf;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 0 5px rgb(159, 55, 234);
+}
+button {
+  background-color: rgb(159, 55, 234);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
