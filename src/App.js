@@ -6,26 +6,26 @@ import Coin from "./routes/Coin"
 import Navbar from "./components/Navbar"
 
 function App() {
-  const [coins, setCoins] = useState([])
+  // const [coins, setCoins] = useState([])
 
-  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=aud&order=market_cap_desc&per_page=20&page=1&sparkline=false
-  `
+  // const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=aud&order=market_cap_desc&per_page=20&page=1&sparkline=false
+  // `
 
-  useEffect(() => {
-    axios
-      .get(url)
-      .then((res) => setCoins(res.data))
+  // useEffect(() => {
+  //   axios
+  //     .get(url)
+  //     .then((res) => setCoins(res.data))
 
-      .catch((err) => {
-        console.log(err.message)
-      })
-  }, [url])
+  //     .catch((err) => {
+  //       console.log(err.message)
+  //     })
+  // }, [url])
 
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Coins coins={coins} />} />
+        <Route path="/" element={<Coins />} />
         <Route path="/coin" element={<Coin />}>
           <Route path=":coinId" element={<Coin />} />
         </Route>

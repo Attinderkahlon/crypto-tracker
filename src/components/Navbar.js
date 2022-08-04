@@ -11,7 +11,7 @@ const Navbar = () => {
       <h1>
         Coin <span className="purple">Search</span>
       </h1>
-      <CoinSearch />
+      {/* <CoinSearch /> */}
     </Link>
   )
 }
