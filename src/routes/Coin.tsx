@@ -5,10 +5,11 @@ import "./Coin.css"
 // import DOMPurify from "dompurify"
 
 import "./Coin.css"
+import { Coin } from "../utils/types"
 
 const Coin = () => {
   const params = useParams()
-  const [coin, setCoin] = useState({})
+  const [coin, setCoin] = useState<Coin>()
 
   const url = `https://api.coingecko.com/api/v3/coins/${params.coinId}`
 
@@ -25,7 +26,7 @@ const Coin = () => {
 
   return (
     <div>
-      <div className="coin-container">
+      {coin && <div className="coin-container">
         <div className="content">
           <h1>{coin.name}</h1>
         </div>
@@ -35,7 +36,7 @@ const Coin = () => {
           </div>
           <div className="info">
             <div className="coin-heading">
-              {coin.image && <img src={coin.image.small} alt="" />}
+              {coin.image && <img src={coin.image} alt="" />}
               <p>{coin.name}</p>
               {coin.symbol && <p>{coin.symbol.toUpperCase()}/aud</p>}
             </div>
@@ -169,7 +170,7 @@ const Coin = () => {
             <p>{coin.description && coin.description.en}</p>
           </div>
         </div> */}
-      </div>
+      </div>}
     </div>
   )
 }
