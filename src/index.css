@@ -14,3 +14,21 @@ body {
   color: #fff;
 }
 
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+}
+
+.hero-bg-img {
+  background-image: url(/src/images/ether-illustration.svg);
+  background-position: 90%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

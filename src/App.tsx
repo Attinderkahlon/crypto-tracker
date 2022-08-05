@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
-import { Route, Routes } from "react-router-dom"
-import Coins from "./components/Coins"
-import Coin from "./routes/Coin"
-import Navbar from "./components/Navbar"
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/layouts/Navbar";
+import Home from "./pages/Home";
 
 function App() {
   // const [coins, setCoins] = useState([])
@@ -22,16 +19,16 @@ function App() {
   // }, [url])
 
   return (
-    <>
+    <div className="max-w-6xl mx-auto px-4">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Coins />} />
-        <Route path="/coin" element={<Coin />}>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/coin" element={<Coin />}>
           <Route path=":coinId" element={<Coin />} />
-        </Route>
+        </Route> */}
       </Routes>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

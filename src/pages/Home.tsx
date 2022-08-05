@@ -1,5 +1,13 @@
-const Home = () => {
-    return <div></div>
-}
+import Body from "../components/layouts/Body";
+import Hero from "../components/layouts/Hero";
 
-export default Home
+const Home = () => {
+  return (
+    <>
+      <Hero />
+      <Body />
+    </>
+  );
+};
+
+export default Home;
