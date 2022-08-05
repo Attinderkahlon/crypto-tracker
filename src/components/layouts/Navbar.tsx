@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="mt-10 w-full h-16 flex">
-      <Link to="/" className="flex items-center space-x-2 flex-nowrap">
-        <FaCoins className="text-cyan-600 h-6 w-6" />
-        <span className="font-semibold flex flex-nowrap">
-          COIN <span className="text-cyan-600">TRACE</span>
+    <div className="mt-10 flex h-16 w-full">
+      <Link to="/" className="flex flex-nowrap items-center space-x-2">
+        <FaCoins className="h-6 w-6 text-purple-600" />
+        <span className="flex flex-nowrap font-semibold">
+          COIN <span className="text-purple-600">TRACE</span>
         </span>
       </Link>
       <div className="flex w-full justify-center space-x-6">

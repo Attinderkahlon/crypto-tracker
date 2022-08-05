@@ -1,10 +1,17 @@
-const StandardCard = () => {
+type Props = {
+  name: string;
+  image: string;
+};
+
+const StandardCard = ({ name, image }: Props) => {
   return (
-    <div className="group rounded-2xl bg-zinc-900 p-4 text-white hover:bg-gradient-to-br hover:from-orange-500 hover:to-indigo-500">
+    <div className="group rounded-2xl bg-zinc-900 p-4 text-white hover:bg-gradient-to-br hover:from-cyan-600 hover:to-orange-500">
       <div className="flex items-center space-x-2">
-        <div className="h-10 w-10 rounded-full bg-red-400"></div>
+        <div className="h-12 w-12">
+          <img src={image} alt={name} />
+        </div>
         <div className="grid">
-          <h3>Coin Name</h3>
+          <h3>{name}</h3>
           <div className="flex space-x-2">
             <span>$1001</span>
             <span>3%</span>
