@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Coin } from "./types";
 
 const axiosClient = axios.create({
   baseURL: `${process.env.REACT_APP_API_URL}`,

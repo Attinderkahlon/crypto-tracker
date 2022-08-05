@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-const Hero = () => {
-  const [search, setSearch] = useState("");
+type Props = {
+  onChangeInput: (e: ChangeEvent<HTMLInputElement>) => void;
+};
+
+const Hero = ({ onChangeInput }: Props) => {
   return (
     <div className="hero-bg-img flex h-80 w-full">
       <div className="my-auto w-full">
@@ -14,6 +17,7 @@ const Hero = () => {
         </div>
         <div className="group relative mt-6">
           <input
+            onChange={onChangeInput}
             placeholder="Search crypto"
             type="text"
             className="w-full rounded-lg border border-purple-700 bg-gray-800 p-2.5 text-sm text-white"
