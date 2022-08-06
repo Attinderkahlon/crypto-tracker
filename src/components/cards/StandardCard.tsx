@@ -7,7 +7,6 @@ type Props = {
   low24h: number;
   marketCap: number;
   marketCapRank: number;
-  onCardClick: () => void;
 };
 
 const StandardCard = ({
@@ -19,15 +18,11 @@ const StandardCard = ({
   low24h,
   marketCap,
   marketCapRank,
-  onCardClick,
 }: Props) => {
   const percentChangeColor =
     changePercentage > 0 ? "text-green-500" : "text-red-500";
   return (
-    <div
-      onClick={onCardClick}
-      className="group cursor-pointer rounded-2xl bg-zinc-900 p-4 text-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-orange-500"
-    >
+    <div className="group cursor-pointer rounded-2xl bg-zinc-900 p-4 text-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-orange-500">
       <div className="flex items-center space-x-2">
         <div className="h-12 w-12">
           <img src={image} alt={name} />

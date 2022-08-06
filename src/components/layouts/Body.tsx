@@ -33,7 +33,7 @@ const Body = () => {
             )
             .splice(0, deleteCount)
             .map((coin) => (
-              <Link to={`/${coin.name}`}>
+              <Link to={`/${coin.id}`} state={coin}>
                 <StandardCard
                   image={coin.image}
                   name={coin.name}
@@ -46,7 +46,6 @@ const Body = () => {
                   low24h={coin.low_24h}
                   marketCap={coin.market_cap}
                   marketCapRank={coin.market_cap_rank}
-                  onCardClick={() => console.log(coin)}
                 />
               </Link>
             ))

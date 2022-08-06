@@ -9,8 +9,8 @@ import CoinDetail from "./pages/CoinDetail";
 
 function App() {
   return (
-    <>
-      <div className="mx-auto max-w-6xl px-4">
+    <div className="flex min-h-screen flex-col justify-between">
+      <div className="mx-auto w-full max-w-6xl px-4">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,7 +21,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

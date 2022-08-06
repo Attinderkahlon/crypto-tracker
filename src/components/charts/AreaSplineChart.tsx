@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,6 +8,7 @@ import {
   Tooltip,
   Filler,
   Legend,
+  ChartData,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
@@ -23,43 +23,35 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Chart.js Line Chart",
-    },
-  },
+type Props = {
+  labels: any;
+  data: number[];
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
-      data: [0, 10, 5, 2, 20, 30, 45],
+const AreaSplineChart = ({ labels, data }: Props) => {
+  const options = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: "Price Change History",
+      },
     },
-  ],
-};
+  };
 
-export function App() {
-  return;
-}
+  const chartData = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Price",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+        data: data,
+      },
+    ],
+  };
 
-const AreaSplineChart = () => {
-  return (
-    <div>
-      <Line options={options} data={data} />
-    </div>
-  );
+  return <Line options={options} data={chartData} />;
 };
 
 export default AreaSplineChart;
