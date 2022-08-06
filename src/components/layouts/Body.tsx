@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaChevronCircleDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { getCoins } from "../../utils/api";
 import { Coin } from "../../utils/types";
 import StandardCard from "../cards/StandardCard";
@@ -32,20 +33,22 @@ const Body = () => {
             )
             .splice(0, deleteCount)
             .map((coin) => (
-              <StandardCard
-                image={coin.image}
-                name={coin.name}
-                key={coin.name}
-                changePercentage={parseFloat(
-                  coin.price_change_percentage_24h.toFixed(2)
-                )}
-                currentPrice={coin.current_price}
-                high24h={coin.high_24h}
-                low24h={coin.low_24h}
-                marketCap={coin.market_cap}
-                marketCapRank={coin.market_cap_rank}
-                onCardClick={() => console.log(coin)}
-              />
+              <Link to={`/${coin.name}`}>
+                <StandardCard
+                  image={coin.image}
+                  name={coin.name}
+                  key={coin.name}
+                  changePercentage={parseFloat(
+                    coin.price_change_percentage_24h.toFixed(2)
+                  )}
+                  currentPrice={coin.current_price}
+                  high24h={coin.high_24h}
+                  low24h={coin.low_24h}
+                  marketCap={coin.market_cap}
+                  marketCapRank={coin.market_cap_rank}
+                  onCardClick={() => console.log(coin)}
+                />
+              </Link>
             ))
         )}
       </div>

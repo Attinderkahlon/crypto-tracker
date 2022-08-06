@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/layouts/Footer";
 import Navbar from "./components/layouts/Navbar";
+import CoinDetail from "./pages/CoinDetail";
 import Home from "./pages/Home";
 
 function App() {
@@ -10,9 +11,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/coin" element={<Coin />}>
-          <Route path=":coinId" element={<Coin />} />
-        </Route> */}
+          <Route path="/:coin" element={<CoinDetail />} />
         </Routes>
       </div>
       <Footer />
