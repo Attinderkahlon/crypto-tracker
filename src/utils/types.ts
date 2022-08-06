@@ -26,3 +26,9 @@ export type Coin = {
   roi?: any;
   last_updated: Date;
 };
+
+export type chartData = {
+  prices: number[][];
+  market_caps: number[][];
+  total_volumes: number[][];
+};
