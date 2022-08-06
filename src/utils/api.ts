@@ -11,3 +11,9 @@ const axiosClient = axios.create({
 export const getCoins = () => {
   return axiosClient.get("/coins/markets?vs_currency=aud&per_page=100");
 };
+
+export const getChartDataByDaysAndId = (coindId: string, daysAgo: number) => {
+  return axiosClient.get(
+    `/coins/${coindId}/market_chart?vs_currency=aud&days=${daysAgo}&interval=daily`
+  );
+};
