@@ -11,15 +11,21 @@ const Navbar = () => {
         </span>
       </Link>
       <div className="flex w-full justify-center space-x-6">
-        <Link to="/" className="flex items-center">
-          Option A
+        <Link to="/profile" className="flex items-center">
+         Profile
         </Link>
-        <Link to="/" className="flex items-center">
-          Option B
+        <Link to="/wallet" className="flex items-center">
+          Wallet
         </Link>
+
         <div className="flex items-center">
           <FaCog />
         </div>
+        <label htmlFor="currency">Choose a currency:</label>
+        <select name="select currency" id="currency" >
+          <option>aud</option>
+          <option>usd</option>
+        </select>
       </div>
     </div>
   );

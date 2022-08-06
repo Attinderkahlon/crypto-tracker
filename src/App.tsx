@@ -1,8 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/layouts/Footer";
 import Navbar from "./components/layouts/Navbar";
-import CoinDetail from "./pages/CoinDetail";
+import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Wallet from "./pages/Wallet";
+import CoinDetail from "./pages/CoinDetail";
 
 function App() {
   return (
@@ -11,7 +14,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:coin" element={<CoinDetail />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/:coinId" element={<CoinDetail />} />
         </Routes>
       </div>
       <Footer />

@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import React, { useState, useEffect } from "react"
-import "./Coin.css"
 // import DOMPurify from "dompurify"
 
 import "./Coin.css"
@@ -24,7 +23,9 @@ const Coin = () => {
       })
   }, [url])
 
-  return (<div></div>
+  return (<div>
+    
+  </div>
     // <div>
     //   {coin && <div className="coin-container">
     //     <div className="content">
