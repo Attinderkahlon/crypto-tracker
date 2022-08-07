@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { getChartDataByDaysAndId, getCoins } from "../utils/api";
 import { chartData, Coin } from "../utils/types";
 import { format } from "date-fns";
-import NotFound from "./NotFound";
+import { FaArrowUp, FaAtlas, FaShoppingBag } from "react-icons/fa";
 
 const CoinDetail = () => {
   const { coinId } = useParams();
@@ -13,7 +13,6 @@ const CoinDetail = () => {
   const [chartData, setChartData] = useState<chartData>();
 
   useEffect(() => {
-    console.log(coinId);
     coinId &&
       getChartDataByDaysAndId(coinId, 30).then((res) => {
         setChartData(res.data);
@@ -35,31 +34,53 @@ const CoinDetail = () => {
   }, [coin]);
 
   return (
-    <>
-      {chartData ? (
-        <div className="h-full w-full">
-          <h1>Coin Detail</h1>
-          {coin && (
-            <div className="grid">
-              <div className="flex h-20 w-full items-center space-x-4 border-2">
-                <img src={coin.image} alt={coin.name} className="h-16" />
-                <div className="grid h-min">
-                  <span className="text-sm text-gray-500">{coin.symbol}</span>
-                  <h1>{coin.name}</h1>
-                </div>
-                <div className="grid h-min">
-                  <span className="text-sm text-gray-500">Price (AUD)</span>
-                  <h1 className="font-semibold">${coin.current_price}</h1>
-                </div>
+    <div className="h-full w-full">
+      {coin && (
+        <div className="mt-10 grid gap-16">
+          <div className="mx-auto flex h-20 items-center space-x-4">
+            <img src={coin.image} alt={coin.name} className="h-16" />
+            <div className="grid h-min">
+              <span className="text-sm text-gray-500">{coin.symbol}</span>
+              <h1>{coin.name}</h1>
+            </div>
+            <div className="grid h-min">
+              <span className="text-sm text-gray-500">Price (AUD)</span>
+              <h1 className="font-semibold">${coin.current_price}</h1>
+            </div>
+          </div>
+          <div className="flex justify-evenly">
+            <div className="flex space-x-2">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-700 text-purple-500">
+                <FaShoppingBag />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm text-gray-500">Market Cap</span>
+                <h3>{coin.market_cap}</h3>
               </div>
             </div>
-          )}
+            <div className="flex space-x-2">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-700 text-purple-500">
+                <FaAtlas />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm text-gray-500">Max Supply</span>
+                <h3>{coin.max_supply}</h3>
+              </div>
+            </div>
+            <div className="flex space-x-2">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-700 text-purple-500">
+                <FaArrowUp />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm text-gray-500">Market Rank</span>
+                <h3>{coin.market_cap_rank}</h3>
+              </div>
+            </div>
+          </div>
           {labels && data && <AreaSplineChart labels={labels} data={data} />}
         </div>
-      ) : (
-        <NotFound />
       )}
-    </>
+    </div>
   );
 };
 export default CoinDetail;
