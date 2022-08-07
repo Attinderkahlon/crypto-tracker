@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaChevronCircleDown } from "react-icons/fa";
+import { FaChevronCircleDown, FaSort } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { getCoins } from "../../utils/api";
 import { Coin } from "../../utils/types";
@@ -11,18 +11,79 @@ const Body = () => {
   const [coins, setCoins] = useState<Coin[]>();
   const [deleteCount, setDeleteCount] = useState(9);
   const [search, setSearch] = useState("");
+  const [reverse, setReverse] = useState(false);
+  const [activeSort, setActiveSort] = useState("rank");
 
   useEffect(() => {
     getCoins().then((res) => {
       setCoins(res.data);
-      console.log("COINS", res.data);
     });
   }, []);
+
+  //sort coins by price
+  const sortByPrice = (coins: Coin[]) => {
+    setCoins(
+      reverse
+        ? [...coins].sort((a, b) => a.current_price - b.current_price)
+        : [...coins].sort((a, b) => b.current_price - a.current_price)
+    );
+    setReverse(!reverse);
+    setActiveSort("price");
+  };
+  //sort coins by rank
+  const sortByRank = (coins: Coin[]) => {
+    setCoins(
+      reverse
+        ? [...coins].sort((a, b) => a.market_cap_rank - b.market_cap_rank)
+        : [...coins].sort((a, b) => b.market_cap_rank - a.market_cap_rank)
+    );
+    setReverse(!reverse);
+    setActiveSort("rank");
+  };
+  //sort coins by name
+  const sortByName = (coins: Coin[]) => {
+    setCoins(
+      reverse
+        ? [...coins].sort((a, b) => a.name.localeCompare(b.name))
+        : [...coins].sort((a, b) => b.name.localeCompare(a.name))
+    );
+    setReverse(!reverse);
+    setActiveSort("name");
+  };
+
+  useEffect(() => {
+    console.log(coins);
+  }, [coins]);
 
   return (
     <>
       <Hero onChangeInput={(e) => setSearch(e.target.value)} />
-      <h1 className="my-6">Explore blockchains</h1>
+      <div className="my-8 flex items-end justify-between">
+        <h1 className="w-min">Explore blockchains</h1>
+        <div className="flex gap-3 [&>span]:flex [&>span]:cursor-pointer [&>span]:items-center">
+          <span
+            className={`${activeSort === "name" && "text-purple-600"}`}
+            onClick={() => coins && sortByName(coins)}
+          >
+            Name
+            <FaSort />
+          </span>
+          <span
+            className={`${activeSort === "rank" && "text-purple-600"}`}
+            onClick={() => coins && sortByRank(coins)}
+          >
+            Rank
+            <FaSort />
+          </span>
+          <span
+            className={`${activeSort === "price" && "text-purple-600"}`}
+            onClick={() => coins && sortByPrice(coins)}
+          >
+            Price
+            <FaSort />
+          </span>
+        </div>
+      </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {!coins ? (
           <Loader />

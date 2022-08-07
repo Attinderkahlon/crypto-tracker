@@ -77,7 +77,9 @@ const CoinDetail = () => {
               </div>
             </div>
           </div>
-          {labels && data && <AreaSplineChart labels={labels} data={data} />}
+          <div className="my-10">
+            {labels && data && <AreaSplineChart labels={labels} data={data} />}
+          </div>
         </div>
       )}
     </div>

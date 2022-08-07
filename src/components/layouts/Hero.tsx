@@ -25,7 +25,7 @@ const Hero = ({ onChangeInput }: Props) => {
           <FaSearch className="absolute right-4 top-1/2 -translate-y-1/2 group-hover:text-purple-500" />
         </div>
         <p className="mt-2 text-xs">
-          Search examples: ** Create Random Words Fn **
+          Search examples: Bitcoin, Etherium, Doge, etc.
         </p>
       </div>
     </div>
