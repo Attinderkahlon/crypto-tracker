@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.23b4bb3a.css",
+    "main.js": "/static/js/main.da2d2f18.js",
+    "static/media/ether-illustration.svg": "/static/media/ether-illustration.0d65b7e8c941cec4a018.svg",
+    "index.html": "/index.html",
+    "main.23b4bb3a.css.map": "/static/css/main.23b4bb3a.css.map",
+    "main.da2d2f18.js.map": "/static/js/main.da2d2f18.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23b4bb3a.css",
+    "static/js/main.da2d2f18.js"
+  ]
+}

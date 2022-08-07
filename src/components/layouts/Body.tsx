@@ -51,10 +51,6 @@ const Body = () => {
     setActiveSort("name");
   };
 
-  useEffect(() => {
-    console.log(coins);
-  }, [coins]);
-
   return (
     <>
       <Hero onChangeInput={(e) => setSearch(e.target.value)} />
