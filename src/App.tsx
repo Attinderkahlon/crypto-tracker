@@ -2,8 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/layouts/Footer";
 import Navbar from "./components/layouts/Navbar";
 import NotFound from "./pages/NotFound";
-import Profile from "./pages/Profile";
-import Wallet from "./pages/Wallet";
+import FuturePrices from "./pages/FuturePrices";
 import CoinDetail from "./pages/CoinDetail";
 import Body from "./components/layouts/Body";
 
@@ -14,8 +13,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Body />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/futureprices" element={<FuturePrices />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/:coinId" element={<CoinDetail />} />
         </Routes>

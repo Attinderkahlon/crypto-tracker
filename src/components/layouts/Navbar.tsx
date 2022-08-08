@@ -11,12 +11,10 @@ const Navbar = () => {
         </span>
       </Link>
       <div className="flex space-x-6">
-        <Link to="/profile" className="flex items-center">
-          Profile
+        <Link to="/futureprices" className="flex items-center">
+          Future Prices
         </Link>
-        <Link to="/wallet" className="flex items-center">
-          Wallet
-        </Link>
+       
         <div className="flex items-center">
           <FaCog />
         </div>

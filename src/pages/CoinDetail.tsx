@@ -29,10 +29,6 @@ const CoinDetail = () => {
   const data =
     chartData && chartData.prices.map((price) => Math.trunc(price[1]));
 
-  useEffect(() => {
-    console.log(coin);
-  }, [coin]);
-
   return (
     <div className="h-full w-full">
       {coin && (

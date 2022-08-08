@@ -20,7 +20,6 @@ const Body = () => {
     });
   }, []);
 
-  //sort coins by price
   const sortByPrice = (coins: Coin[]) => {
     setCoins(
       reverse
@@ -30,7 +29,6 @@ const Body = () => {
     setReverse(!reverse);
     setActiveSort("price");
   };
-  //sort coins by rank
   const sortByRank = (coins: Coin[]) => {
     setCoins(
       reverse
@@ -40,7 +38,6 @@ const Body = () => {
     setReverse(!reverse);
     setActiveSort("rank");
   };
-  //sort coins by name
   const sortByName = (coins: Coin[]) => {
     setCoins(
       reverse
@@ -53,7 +50,7 @@ const Body = () => {
 
   return (
     <>
-      <Hero onChangeInput={(e) => setSearch(e.target.value)} />
+      <Hero onChangeInput={(e) => setSearch(e.target.value)} onClear={()=>setSearch("")} value={search} />
       <div className="my-8 flex items-end justify-between">
         <h1 className="w-min">Explore blockchains</h1>
         <div className="flex gap-3 [&>span]:flex [&>span]:cursor-pointer [&>span]:items-center">
@@ -90,7 +87,7 @@ const Body = () => {
             )
             .splice(0, deleteCount)
             .map((coin) => (
-              <Link to={`/${coin.id}`} state={coin}>
+              <Link to={`/${coin.id}`} state={coin} key={coin.id}>
                 <StandardCard
                   image={coin.image}
                   name={coin.name}

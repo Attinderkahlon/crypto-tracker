@@ -32,3 +32,9 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
+@media (max-width: 629px) {
+  .hero-bg-img {
+    background-color: #26272b;
+    background-image: none;
+  }
+}

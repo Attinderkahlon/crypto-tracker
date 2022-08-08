@@ -40,6 +40,10 @@ const Footer = () => {
               <img src={"/images/aws-s3.svg"} alt="AWS S3" />
               <span className="group-hover:block">AWS S3</span>
             </div>
+            <div className="group relative">
+              <img src={"/images/coinGecko.jpeg"} alt="Coin Gecko" />
+              <span className="group-hover:block">Coin Gecko</span>
+            </div>
           </div>
         </div>
 
