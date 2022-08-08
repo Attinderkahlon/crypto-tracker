@@ -7,7 +7,7 @@ type Props = {
   value: string;
 };
 
-const Hero = ({ onChangeInput, onClear, value }: Props ) => {
+const Hero = ({ onChangeInput, onClear, value }: Props) => {
   return (
     <div className="hero-bg-img flex h-80 w-full">
       <div className="my-auto w-full">
@@ -24,9 +24,12 @@ const Hero = ({ onChangeInput, onClear, value }: Props ) => {
             type="text"
             value={value}
             className="w-full rounded-lg border border-purple-700 bg-gray-800 p-2.5 text-sm text-white"
-          /> 
-          <FaSearch className="absolute right-12 top-1/2 -translate-y-1/2 hover:text-purple-500" /> 
-          <FaTimes  onClick={onClear} className="absolute right-1 top-1/2 -translate-y-1/2 hover:text-purple-900" />
+          />
+          <FaSearch className="absolute right-12 top-1/2 h-4 -translate-y-1/2 cursor-text opacity-20" />
+          <FaTimes
+            onClick={onClear}
+            className="absolute right-4 top-1/2 h-5 -translate-y-1/2 cursor-pointer hover:text-purple-600"
+          />
         </div>
         <p className="mt-2 text-xs">
           Search examples: Bitcoin, Etherium, Doge, etc.
